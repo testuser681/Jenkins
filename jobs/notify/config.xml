@@ -26,7 +26,6 @@
     <hudson.tasks.Shell>
       <command>if [ $response -ge 400 ]
 then
-	# export DEFAULT_SUBJECT=$build_no
 	exit 1
 fi
 exit 0</command>
