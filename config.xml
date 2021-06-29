@@ -26,16 +26,19 @@
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
           <configVersion>2</configVersion>
           <labelString>docker-slave-demo</labelString>
-          <connector class="io.jenkins.docker.connector.DockerComputerAttachConnector">
-            <user>jenkins</user>
-          </connector>
+          <connector class="io.jenkins.docker.connector.DockerComputerAttachConnector"/>
+          <remoteFs>/var/jenkins_home</remoteFs>
           <instanceCap>1</instanceCap>
           <mode>EXCLUSIVE</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
             <idleMinutes>10</idleMinutes>
           </retentionStrategy>
           <dockerTemplateBase>
-            <image>jenkins/slave:latest</image>
+            <image>drabina/agent:latest</image>
+            <user>root</user>
+            <volumes>
+              <string>/var/run/docker.sock:/var/run/docker.sock</string>
+            </volumes>
             <bindAllPorts>false</bindAllPorts>
             <cpuPeriod>0</cpuPeriod>
             <cpuQuota>0</cpuQuota>
