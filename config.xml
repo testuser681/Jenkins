@@ -27,15 +27,15 @@
           <configVersion>2</configVersion>
           <labelString>docker-slave-demo</labelString>
           <connector class="io.jenkins.docker.connector.DockerComputerAttachConnector"/>
-          <remoteFs>/var/jenkins_home</remoteFs>
+          <remoteFs>/home/jenkins/agent</remoteFs>
           <instanceCap>1</instanceCap>
           <mode>EXCLUSIVE</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
             <idleMinutes>10</idleMinutes>
           </retentionStrategy>
           <dockerTemplateBase>
-            <image>drabina/agent:latest</image>
-            <user>root</user>
+            <image>drabina/agent:2.0</image>
+            <user>jenkins</user>
             <volumes>
               <string>/var/run/docker.sock:/var/run/docker.sock</string>
             </volumes>
@@ -53,6 +53,30 @@
             <disabledByChoice>false</disabledByChoice>
           </disabled>
           <name>docker-slave-demo</name>
+        </com.nirima.jenkins.plugins.docker.DockerTemplate>
+        <com.nirima.jenkins.plugins.docker.DockerTemplate>
+          <configVersion>2</configVersion>
+          <connector class="io.jenkins.docker.connector.DockerComputerAttachConnector"/>
+          <instanceCap>2147483647</instanceCap>
+          <mode>NORMAL</mode>
+          <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+            <idleMinutes>10</idleMinutes>
+          </retentionStrategy>
+          <dockerTemplateBase>
+            <image></image>
+            <bindAllPorts>false</bindAllPorts>
+            <cpuPeriod>0</cpuPeriod>
+            <cpuQuota>0</cpuQuota>
+            <privileged>false</privileged>
+            <tty>false</tty>
+          </dockerTemplateBase>
+          <removeVolumes>false</removeVolumes>
+          <stopTimeout>10</stopTimeout>
+          <pullStrategy>PULL_ALWAYS</pullStrategy>
+          <pullTimeout>300</pullTimeout>
+          <disabled>
+            <disabledByChoice>true</disabledByChoice>
+          </disabled>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
@@ -89,3 +113,4 @@
   <nodeProperties/>
   <globalNodeProperties/>
 </hudson>
+
