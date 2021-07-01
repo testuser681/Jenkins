@@ -11,3 +11,4 @@ RUN add-apt-repository \
 RUN apt-get update && apt-get install -y docker-ce-cli
 RUN usermod -aG root jenkins
 USER jenkins
+
