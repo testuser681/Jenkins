@@ -5,3 +5,4 @@ RUN dnf config-manager \
     --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
 RUN dnf -y install docker-ce docker-ce-cli containerd.io
+RUN dnf -y install iputils
