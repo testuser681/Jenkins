@@ -1,7 +1,7 @@
-Role Name
+MongoDB installer
 =========
 
-A brief description of the role goes here.
+A role installing MongoDB using the package manager.
 
 Requirements
 ------------
