@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# open necessary ports
-socat TCP-LISTEN:2377,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
-socat TCP-LISTEN:7946,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
-socat UDP-LISTEN:7946,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
-socat UDP-LISTEN:4789,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
+docker run -dit -p 2223:22 --name ubuntu --network="my-overlay" --rm -v /sys/fs/cgroup/:/sys/fs/cgroup:ro --cap-add SYS_ADMIN --cap-add NET_ADMIN ubuntu
+docker run -dit -p 2224:22 --name fedora --network="my-overlay" --rm -v /sys/fs/cgroup/:/sys/fs/cgroup:ro --cap-add SYS_ADMIN --cap-add NET_ADMIN fedora
 
-# build docker images
-#docker build -t alpine ./alpine
-#docker build -t fedora ./fedora
-#docker build -t ubuntu ./ubuntu
-
-# create overlay network
-docker network create -d overlay --attachable my-overlay
