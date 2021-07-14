@@ -1,0 +1,7 @@
+FROM arvindr226/alpine-ssh
+
+RUN sed '$d' /etc/ssh/sshd_config
+RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+RUN echo 'root:haslo123' | chpasswd
+
+ENTRYPOINT sh
