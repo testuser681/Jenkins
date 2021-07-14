@@ -7,6 +7,7 @@ RUN apt -y install supervisor
 RUN sed '$d' /etc/ssh/sshd_config
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN echo 'root:haslo123' | chpasswd
+RUN mkdir /run/sshd
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
