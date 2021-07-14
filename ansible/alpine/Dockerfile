@@ -1,12 +1,8 @@
 FROM alpine:latest
 USER root
 
-RUN apk add --update openrc
 RUN apk add openssh
 RUN apk add supervisor
-
-RUN mkdir -p run/openrc
-RUN touch run/openrc/softlevel
 
 RUN ssh-keygen -A
 RUN sed '$d' /etc/ssh/sshd_config
