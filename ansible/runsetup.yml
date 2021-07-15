@@ -1,0 +1,5 @@
+- name: Run MongoDB role
+  hosts: fedora
+  connection: local
+  roles:
+  - mongo
