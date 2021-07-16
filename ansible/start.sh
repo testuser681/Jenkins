@@ -6,6 +6,9 @@ socat TCP-LISTEN:7946,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
 socat UDP-LISTEN:7946,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
 socat UDP-LISTEN:4789,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
 
+#docker initialization
+docker swarm init
+
 # build docker images
 #docker build -t alpine ./alpine
 #docker build -t fedora ./fedora
