@@ -5,4 +5,7 @@
 127.0.0.1:2223
 
 [fedora]
-some.weird.address
+0.0.0.0:2224
+
+[fedora:vars]
+ansible_python_interpreter=/usr/bin/python
