@@ -11,7 +11,7 @@ docker swarm init
 
 # build docker images
 #docker build -t alpine ./alpine
-#docker build -t fedora ./fedora
+#docker build -t centos ./centos
 #docker build -t ubuntu ./ubuntu
 
 # create overlay network
