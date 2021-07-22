@@ -1,9 +1,5 @@
 ---
 # tasks file for mongo
-- name: Install MongoDB
-  ansible.builtin.dnf: 
-      name="mongodb-org, mongodb-org-server"
-      state=latest
-
-
+- include_tasks: centos.yml
+  when: ansible_os_family == 'RedHat'
 

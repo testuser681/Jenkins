@@ -1,9 +1,5 @@
-- name: Run MongoDB role on CentOS
+- name: Run MongoDB role
   hosts: centos
   roles:
-  - mongo-centos
+  - mongo
 
-- name: Run MongoDB role on Ubuntu
-  hosts: ubuntu
-  roles:
-  - mongo-ubuntu
