@@ -1,0 +1,9 @@
+---
+# tasks file for mongo
+- name: Install MongoDB
+  ansible.builtin.apt-get: 
+      name="mongodb-org, mongodb-org-server"
+      state=latest
+
+
+

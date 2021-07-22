@@ -1,11 +1,11 @@
 [alpine]
-127.0.0.1:2222
+127.0.0.1 ansible_port=2222 ansible_ssh_user=root ansible_ssh_pass=haslo123
 
 [ubuntu]
-127.0.0.1:2223
+127.0.0.1 ansible_port=2223 ansible_ssh_user=root ansible_ssh_pass=haslo123
 
-[fedora]
+[centos]
 127.0.0.1 ansible_port=2224 ansible_ssh_user=root ansible_ssh_pass=haslo123
 
-[fedora:vars]
+[centos:vars]
 ansible_python_interpreter=/usr/bin/python3
