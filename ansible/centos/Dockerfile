@@ -10,7 +10,5 @@ RUN sed '$d' /etc/ssh/sshd_config
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN echo 'root:haslo123' | chpasswd
 
-COPY ./mongodb.repo /etc/yum.repos.d/mongodb.repo
-
 ENTRYPOINT /sbin/init
 

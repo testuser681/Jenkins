@@ -1,0 +1,23 @@
+---
+# tasks file for mongo
+- name: Copy MongoDB repository
+  copy:
+      src=files/mongodb.repo
+      dest=/etc/yum.repos.d/mongodb.repo
+- name: Install MongoDB
+  ansible.builtin.dnf: 
+      name=mongodb-org
+      state=latest
+- name: Delete default config file
+  file:
+      path: /etc/mongod.conf
+      state: absent
+- name: Copy new config file
+  template:
+      src: mongodc.j2
+      dest: /etc/mongod.conf
+      notify:
+          - start
+
+
+
