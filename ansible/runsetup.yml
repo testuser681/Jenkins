@@ -1,5 +1,9 @@
 - name: Run MongoDB role
   hosts: centos
+  gather_facts: true
+  become: true
+  become_user: root
+  become_method: sudo
   roles:
   - mongo
 
