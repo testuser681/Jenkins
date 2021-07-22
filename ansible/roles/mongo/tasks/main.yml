@@ -2,4 +2,6 @@
 # tasks file for mongo
 - include_tasks: centos.yml
   when: ansible_os_family == 'RedHat'
+- include_tasks: ubuntu.yml
+  when: ansible_os_family == 'Debian'
 

@@ -1,5 +1,5 @@
 ---
-# tasks file for mongo
+# tasks file for centos
 - name: Copy MongoDB repository
   copy: 
       src=files/mongodb.repo 

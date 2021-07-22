@@ -3,11 +3,13 @@ USER root
 
 RUN apt update && apt -y install openssh-server
 RUN apt -y install supervisor
+RUN apt -y install gnupg
+RUN apt -y install python3
 
 RUN sed '$d' /etc/ssh/sshd_config
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN echo 'root:haslo123' | chpasswd
-RUN mkdir /run/sshd
+RUN mkdir -p /run/sshd
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
