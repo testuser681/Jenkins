@@ -1,4 +1,4 @@
-MongoDB installer
+MongoDB installer (work in progress...)
 =========
 
 A role installing MongoDB using the package manager.
