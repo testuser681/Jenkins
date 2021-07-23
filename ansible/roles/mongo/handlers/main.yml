@@ -1,3 +1,5 @@
 ---
 - name: start
-  service: name=mongod state=restarted
+  ansible.builtin.service: name=mongod state=restarted
+- name: start-ubuntu
+  shell: service ssh start

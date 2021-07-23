@@ -13,5 +13,7 @@ RUN mkdir -p /run/sshd
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-ENTRYPOINT /usr/bin/supervisord
+#ENTRYPOINT /usr/bin/supervisord
+ENTRYPOINT supervisord -c /etc/supervisor/conf.d/supervisord.conf
+
 

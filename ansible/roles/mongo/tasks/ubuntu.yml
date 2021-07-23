@@ -20,4 +20,4 @@
     src: mongodu.j2
     dest: /etc/mongod.conf
    notify:
-   - start
+   - start-ubuntu
