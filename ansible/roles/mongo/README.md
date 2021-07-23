@@ -26,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
     become_user: root
     become_method: sudo
     roles:
-    - mongo
+        - mongo
 
 License
 -------
