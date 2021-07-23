@@ -1,7 +1,10 @@
-[containers]
-alpine ansible_ssh_host=127.0.0.1 ansible_port=2222 ansible_ssh_user=root ansible_ssn_pass=haslo123
+[containers2]
+alpine ansible_ssh_host=127.0.0.1 ansible_port=2222 ansible_ssh_user=root ansible_ssh_pass=haslo123
 ubuntu ansible_ssh_host=127.0.0.1 ansible_port=2223 ansible_ssh_user=root ansible_ssh_pass=haslo123
 centos ansible_ssh_host=127.0.0.1 ansible_port=2224 ansible_ssh_user=root ansible_ssh_pass=haslo123
+
+[containers]
+alpine ansible_ssh_host=127.0.0.1 ansible_port=2222 ansible_ssh_user=root ansible_ssh_pass=haslo123
 
 [containers:vars]
 ansible_python_interpreter=/usr/bin/python3

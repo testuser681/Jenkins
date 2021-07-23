@@ -17,3 +17,5 @@
     name: mongodb
     state: present
     update_cache: yes
+  notify:
+      - start-alpine

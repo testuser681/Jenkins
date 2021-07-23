@@ -1,8 +1,9 @@
-FROM alpine:latest
+FROM alpine:3.9
 USER root
 
 RUN apk add openssh
 RUN apk add supervisor
+RUN apk add python3
 
 RUN ssh-keygen -A
 RUN sed '$d' /etc/ssh/sshd_config
