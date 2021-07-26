@@ -1,9 +1,12 @@
 ---
 # tasks file for mongo
-- include_tasks: centos.yml
-  when: ansible_os_family == 'RedHat'
-- include_tasks: ubuntu.yml
-  when: ansible_os_family == 'Debian'
-- include_tasks: alpine.yml
-  when: ansible_os_family == 'Alpine'
+- name: Install and configure MongoDB
+  block:
+    - include_tasks: centos.yml
+      when: ansible_os_family == 'RedHat'
+    - include_tasks: ubuntu.yml
+      when: ansible_os_family == 'Debian'
+    - include_tasks: alpine.yml
+      when: ansible_os_family == 'Alpine'
+  tags: deploy
 

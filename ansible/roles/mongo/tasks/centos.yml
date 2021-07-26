@@ -16,6 +16,10 @@
   template:
       src: mongodc.j2
       dest: /etc/mongod.conf
+- name: create /db directory
+  file:
+      path: /data/db
+      state: directory
   notify:
-      - start
+      - start-centos
 

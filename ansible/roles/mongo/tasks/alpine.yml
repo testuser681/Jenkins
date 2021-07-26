@@ -17,5 +17,11 @@
     name: mongodb
     state: present
     update_cache: yes
+
+- name: create /db directory
+  file:
+    path: /data/db
+    state: directory
+  
   notify:
-      - start-alpine
+   - start
