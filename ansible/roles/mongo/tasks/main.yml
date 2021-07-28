@@ -8,8 +8,12 @@
       when: ansible_os_family == 'Debian'
     - include_tasks: alpine.yml
       when: ansible_os_family == 'Alpine'
+    - include_tasks: configure.yml
+    - include_tasks: admin.yml
+      when: mongodb_replSet_isMaster or not mongodb_replSet_enabled
   tags: deploy
 
 - name: Configure replica set
-  include_tasks: replica.yml
+  include: replica.yml
+  when: mongodb_replSet_enabled
   tags: restart
