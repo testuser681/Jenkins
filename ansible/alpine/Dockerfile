@@ -4,6 +4,7 @@ USER root
 RUN apk add openssh
 RUN apk add supervisor
 RUN apk add python3
+RUN apk add python3-pymongo
 
 RUN ssh-keygen -A
 RUN sed '$d' /etc/ssh/sshd_config

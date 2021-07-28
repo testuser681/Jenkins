@@ -1,50 +1,27 @@
 ---
 - block:
-  - name: initiate replica set
-    community.mongodb.mongodb_replicaset:
-      state: initiated
-      replset: "{{ mongodb_replSet_name }}"
-      login_host: "127.0.0.1"
-      login_port: "{{ mongodb_conf_port }}"
-      priority: "501"
-      votes: "{{ mongodb_replSet_votes }}"
-      member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-
-  - name: connect to master
-    community.mongodb.mongodb_replicaset:
-      state: present
-      replset: "{{ mongodb_replSet_name }}"
-      login_host: "{{ mongodb_replSet_master }}"
-      login_port: "{{ mongodb_conf_port }}"
-      priority: "{{ mongodb_replSet_priority | default(omit) }}"
-      arbiter_only: "{{ mongodb_replSet_arbiter }}"
-      votes: "{{ mongodb_replSet_votes }}"
-      member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-
-- block:
   - name: initiate replica set (authenticated)
     community.mongodb.mongodb_replicaset:
-      state: initiated
-      replset: "{{ mongodb_replSet_name }}"
+      replica_set: "{{ mongodb_replSet_name }}"
       login_host: "127.0.0.1"
-      login_port: "{{ mongodb_conf_port }}"
+      login_port: "27017"
       login_user: "{{ mongodb_admin_user }}"
       login_password: "{{ mongodb_admin_password }}"
-      priority: "501"
-      votes: "{{ mongodb_replSet_votes }}"
-      member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
+      members:
+      - localhost:2223
+      - localhost:2224
+      validate: no
 
-  - name: connect to master (authenticated)
-    community.mongodb.mongodb_replicaset:
-      state: present
-      replset: "{{ mongodb_replSet_name }}"
-      login_host: "{{ mongodb_replSet_master }}"
-      login_port: "{{ mongodb_conf_port }}"
-      login_user: "{{ mongodb_admin_user }}"
-      login_password: "{{ mongodb_admin_password }}"
-      priority: "{{ mongodb_replSet_priority | default(omit) }}"
-      arbiter_only: "{{ mongodb_replSet_arbiter }}"
-      votes: "{{ mongodb_replSet_votes }}"
-      member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-
+  #- block:
+  #- name: connect to master (authenticated)
+  #  community.mongodb.mongodb_replicaset:
+  #    replica_set: "{{ mongodb_replSet_name }}"
+  #    login_host: "127.0.0.1"
+  #    login_port: "{{ mongodb_conf_port }}"
+  #    login_user: "{{ mongodb_admin_user }}"
+  #    login_password: "{{ mongodb_admin_password }}"
+  #    arbiter_only: "{{ mongodb_replSet_arbiter }}"
+  #    members:
+  #    - localhost:2223
+  #    - localhost:2224
 
