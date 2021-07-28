@@ -9,7 +9,6 @@
       priority: "501"
       votes: "{{ mongodb_replSet_votes }}"
       member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-    when: mongodb_replSet_isMaster
 
   - name: connect to master
     community.mongodb.mongodb_replicaset:
@@ -21,8 +20,6 @@
       arbiter_only: "{{ mongodb_replSet_arbiter }}"
       votes: "{{ mongodb_replSet_votes }}"
       member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-    when: not mongodb_replSet_isMaster
-  when: not mongodb_conf_auth
 
 - block:
   - name: initiate replica set (authenticated)
@@ -36,7 +33,6 @@
       priority: "501"
       votes: "{{ mongodb_replSet_votes }}"
       member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-    when: mongodb_replSet_isMaster
 
   - name: connect to master (authenticated)
     community.mongodb.mongodb_replicaset:
@@ -50,6 +46,5 @@
       arbiter_only: "{{ mongodb_replSet_arbiter }}"
       votes: "{{ mongodb_replSet_votes }}"
       member: "{{ mongodb_replSet_member }}:{{ mongodb_conf_port }}"
-    when: not mongodb_replSet_isMaster
-  when: mongodb_conf_auth
+
 
