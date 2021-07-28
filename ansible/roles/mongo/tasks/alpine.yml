@@ -18,6 +18,15 @@
     state: present
     update_cache: yes
 
+- name: remove a file
+  file:
+    path: /etc/mongod.conf
+    state: absent
+- name: mongo conf copy
+  template:
+    src: mongodu.j2
+    dest: /etc/mongod.conf
+
 - name: create /db directory
   file:
     path: /data/db

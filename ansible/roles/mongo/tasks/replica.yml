@@ -1,0 +1,12 @@
+# Create a replicaset called 'rs0' with the 3 provided members
+- name: Ensure replicaset rs0 exists
+  community.mongodb.mongodb_replicaset:
+    login_host: localhost
+    login_user: root
+    login_password: haslo123
+    replica_set: rs0
+    members:
+    - localhost:2222
+    - localhost:2223
+    - localhost:2224
+  when: groups.mongod.index(inventory_hostname) == 0

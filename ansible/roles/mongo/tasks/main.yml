@@ -10,3 +10,6 @@
       when: ansible_os_family == 'Alpine'
   tags: deploy
 
+- name: Configure replica set
+  include_tasks: replica.yml
+  tags: restart

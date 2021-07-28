@@ -24,4 +24,4 @@
      path: /data/db
      state: directory
    notify:
-     - start-ubuntu
+     - start
