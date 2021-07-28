@@ -1,7 +1,7 @@
 ---
 - block:
   - name: initiate replica set
-    mongodb_replica_set:
+    community.mongodb.mongodb_replicaset:
       state: initiated
       replset: "{{ mongodb_replSet_name }}"
       login_host: "127.0.0.1"
@@ -12,7 +12,7 @@
     when: mongodb_replSet_isMaster
 
   - name: connect to master
-    mongodb_replica_set:
+    community.mongodb.mongodb_replicaset:
       state: present
       replset: "{{ mongodb_replSet_name }}"
       login_host: "{{ mongodb_replSet_master }}"
@@ -26,7 +26,7 @@
 
 - block:
   - name: initiate replica set (authenticated)
-    mongodb_replica_set:
+    community.mongodb.mongodb_replicaset:
       state: initiated
       replset: "{{ mongodb_replSet_name }}"
       login_host: "127.0.0.1"
@@ -39,7 +39,7 @@
     when: mongodb_replSet_isMaster
 
   - name: connect to master (authenticated)
-    mongodb_replica_set:
+    community.mongodb.mongodb_replicaset:
       state: present
       replset: "{{ mongodb_replSet_name }}"
       login_host: "{{ mongodb_replSet_master }}"
