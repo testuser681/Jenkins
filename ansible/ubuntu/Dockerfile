@@ -5,6 +5,7 @@ RUN apt update && apt -y install openssh-server
 RUN apt -y install supervisor
 RUN apt -y install gnupg
 RUN apt -y install python3
+RUN apt -y install python3-pymongo
 
 RUN sed '$d' /etc/ssh/sshd_config
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
