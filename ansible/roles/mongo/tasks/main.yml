@@ -8,12 +8,7 @@
       when: ansible_os_family == 'Debian'
     - include_tasks: alpine.yml
       when: ansible_os_family == 'Alpine'
-    - include_tasks: admin.yml
   tags: deploy
-
-- name: Configure admin user
-  include: admin.yml
-  tags: admin
 
 - name: Configure replica set
   include: replica.yml

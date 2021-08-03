@@ -1,27 +1,13 @@
 ---
 - block:
-  - name: initiate replica set (authenticated)
+  - name: initiate replica set
     community.mongodb.mongodb_replicaset:
-      replica_set: "{{ mongodb_replSet_name }}"
+      replica_set: "rs0"
       login_host: "127.0.0.1"
-      login_port: "27017"
-      login_user: "{{ mongodb_admin_user }}"
-      login_password: "{{ mongodb_admin_password }}"
+      login_port: "2224"
+      login_user: "root"
+      login_password: "haslo123"
       members:
-      - localhost:2223
-      - localhost:2224
+      - 127.0.0.1:2223
       validate: no
-
-  #- block:
-  #- name: connect to master (authenticated)
-  #  community.mongodb.mongodb_replicaset:
-  #    replica_set: "{{ mongodb_replSet_name }}"
-  #    login_host: "127.0.0.1"
-  #    login_port: "{{ mongodb_conf_port }}"
-  #    login_user: "{{ mongodb_admin_user }}"
-  #    login_password: "{{ mongodb_admin_password }}"
-  #    arbiter_only: "{{ mongodb_replSet_arbiter }}"
-  #    members:
-  #    - localhost:2223
-  #    - localhost:2224
 
