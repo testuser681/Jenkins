@@ -4,6 +4,9 @@
   copy: 
       src=files/mongodb.repo 
       dest=/etc/yum.repos.d/mongodb.repo
+- name: Install Pymongo
+  pip:
+      name=pymongo
 - name: Install MongoDB
   ansible.builtin.dnf: 
       name=mongodb-org
@@ -16,6 +19,8 @@
   template:
       src: mongodc.j2
       dest: /etc/mongod.conf
+  notify:
+      - start
 - name: create /db directory
   file:
       path: /data/db

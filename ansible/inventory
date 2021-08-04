@@ -1,5 +1,6 @@
 [containers]
-ubuntu ansible_ssh_host=127.0.0.1 ansible_port=2223 ansible_ssh_user=root ansible_ssh_pass=haslo123
+centos2 ansible_ssh_host=127.0.0.1 ansible_port=2222 ansible_ssh_user=root ansible_ssh_pass=haslo123
+centos3 ansible_ssh_host=127.0.0.1 ansible_port=2223 ansible_ssh_user=root ansible_ssh_pass=haslo123
 centos ansible_ssh_host=127.0.0.1 ansible_port=2224 ansible_ssh_user=root ansible_ssh_pass=haslo123
 
 [containers2]

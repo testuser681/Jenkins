@@ -1,13 +1,21 @@
 ---
+- name: Create 'burgers' database user with name 'bob' and password '12345'.
+  community.mongodb.mongodb_user:
+    database: "admin"
+    name: "myUserAdmin"
+    password: "abc123"
+    state: present
+
 - block:
   - name: initiate replica set
     community.mongodb.mongodb_replicaset:
       replica_set: "rs0"
-      login_host: "127.0.0.1"
-      login_port: "2224"
-      login_user: "root"
-      login_password: "haslo123"
+      login_host: "10.0.1.20"
+      login_port: "27017"
+      login_user: "myUserAdmin"
+      login_password: "abc123"
       members:
-      - 127.0.0.1:2223
+      - 10.0.1.17
+      - 10.0.1.19
       validate: no
 
