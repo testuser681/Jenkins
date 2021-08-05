@@ -1,5 +1,5 @@
 ---
-- name: Create 'burgers' database user with name 'bob' and password '12345'.
+- name: Create database user
   community.mongodb.mongodb_user:
     database: "admin"
     name: "myUserAdmin"
@@ -7,7 +7,7 @@
     state: present
 
 - block:
-  - name: initiate replica set
+  - name: Initiate replica set
     community.mongodb.mongodb_replicaset:
       replica_set: "rs0"
       login_host: "10.0.1.9"
