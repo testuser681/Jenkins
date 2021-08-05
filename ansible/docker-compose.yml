@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
     centos:
+        command: centos --cap-add SYS_ADMIN --cap-add NET_ADMIN
         container_name: centos
         build: centos
         image: centos
@@ -10,7 +11,11 @@ services:
             - "27001:27017"
         volumes:
             - /sys/fs/cgroup/:/sys/fs/cgroup:ro
+        cap_add:
+            - SYS_ADMIN
+            - NET_ADMIN
     centos2:
+        command: centos --cap-add SYS_ADMIN --cap-add NET_ADMIN
         container_name: centos2
         build: centos
         image: centos
@@ -19,7 +24,11 @@ services:
             - "27002:27017"
         volumes:
             - /sys/fs/cgroup/:/sys/fs/cgroup:ro
+        cap_add:
+            - SYS_ADMIN
+            - NET_ADMIN
     centos3:
+        command: centos --cap-add SYS_ADMIN --cap-add NET_ADMIN
         container_name: centos3
         build: centos
         image: centos
@@ -28,10 +37,12 @@ services:
             - "27003:27017"
         volumes:
             - /sys/fs/cgroup/:/sys/fs/cgroup:ro
+        cap_add:
+            - SYS_ADMIN
+            - NET_ADMIN
         
 networks:
     default:
         external: true
         name: my-overlay
-
 
