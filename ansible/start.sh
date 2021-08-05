@@ -10,9 +10,9 @@ socat UDP-LISTEN:4789,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
 docker swarm init
 
 # build docker images
-#docker build -t alpine ./alpine
 #docker build -t centos ./centos
-#docker build -t ubuntu ./ubuntu
+#docker build -t centos2 ./centos2
+#docker build -t centos3 ./centos3
 
 # create overlay network
 docker network create -d overlay --attachable my-overlay
