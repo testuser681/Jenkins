@@ -2,7 +2,6 @@ version: "3.9"
 
 services:
     centos:
-        command: centos --cap-add SYS_ADMIN --cap-add NET_ADMIN
         container_name: centos
         build: centos
         image: centos
@@ -15,7 +14,6 @@ services:
             - SYS_ADMIN
             - NET_ADMIN
     centos2:
-        command: centos --cap-add SYS_ADMIN --cap-add NET_ADMIN
         container_name: centos2
         build: centos
         image: centos
@@ -28,7 +26,6 @@ services:
             - SYS_ADMIN
             - NET_ADMIN
     centos3:
-        command: centos --cap-add SYS_ADMIN --cap-add NET_ADMIN
         container_name: centos3
         build: centos
         image: centos
