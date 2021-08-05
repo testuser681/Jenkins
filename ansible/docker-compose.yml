@@ -8,6 +8,8 @@ services:
         ports:
             - "2222:22"
             - "27001:27017"
+        volumes:
+            - /sys/fs/cgroup/:/sys/fs/cgroup:ro
     centos2:
         container_name: centos2
         build: centos
@@ -15,6 +17,8 @@ services:
         ports:
             - "2223:22"
             - "27002:27017"
+        volumes:
+            - /sys/fs/cgroup/:/sys/fs/cgroup:ro
     centos3:
         container_name: centos3
         build: centos
@@ -22,9 +26,12 @@ services:
         ports:
             - "2224:22"
             - "27003:27017"
+        volumes:
+            - /sys/fs/cgroup/:/sys/fs/cgroup:ro
         
 networks:
-  default:
-    external: true
-    name: my-overlay
+    default:
+        external: true
+        name: my-overlay
+
 
