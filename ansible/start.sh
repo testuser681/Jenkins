@@ -16,3 +16,7 @@ docker swarm init
 
 # create overlay network
 docker network create -d overlay --attachable my-overlay
+
+# remove public keys from containers to avoid errors
+known_hosts='/Users/pdrabicki/.ssh/known_hosts'
+grep -v "^\[127.0.0.1\]" $known_hosts  > tmpfile && mv tmpfile $known_hosts
