@@ -1,21 +1,14 @@
 ---
-- name: Create database user
-  community.mongodb.mongodb_user:
-    database: "admin"
-    name: "myUserAdmin"
-    password: "abc123"
-    state: present
-
 - block:
   - name: Initiate replica set
     community.mongodb.mongodb_replicaset:
       replica_set: "rs0"
-      login_host: "10.0.1.9"
+      login_host: "centos"
       login_port: "27017"
-      login_user: "myUserAdmin"
-      login_password: "abc123"
+      #      login_user: "myUserAdmin"
+      #    login_password: "abc123"
       members:
-      - 10.0.1.6
-      - 10.0.1.8
+      - "centos2"
+      - "centos3"
       validate: no
 

@@ -10,6 +10,16 @@
       when: ansible_os_family == 'Alpine'
   tags: deploy
 
+- name: determine if is replica set master
+  set_fact:
+    mongodb_replSet_isMaster: "{{ True if 'centos' in ansible_all_ipv4_addresses else False }}"
+  tags: repl-set
+
+- name: Configure the user
+  include: admin.yml
+  when: mongodb_replSet_isMaster
+  tags: repl-set
+
 - name: Configure replica set
   include: replica.yml
-  tags: restart
+  tags: repl-set

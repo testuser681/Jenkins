@@ -1,0 +1,7 @@
+---
+- name: Create database user
+  community.mongodb.mongodb_user:
+    database: "admin"
+    name: "myUserAdmin"
+    password: "abc123"
+    state: present

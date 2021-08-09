@@ -4,13 +4,14 @@
   copy: 
       src=files/mongodb.repo 
       dest=/etc/yum.repos.d/mongodb.repo
-- name: Install Pymongo
-  pip:
-      name=pymongo
 - name: Install MongoDB
   ansible.builtin.dnf: 
       name=mongodb-org
       state=latest
+- name: Install Pymongo
+  pip:
+      name=pymongo
+      #state=absent
 - name: Delete default config file
   file:
       path: /etc/mongod.conf
